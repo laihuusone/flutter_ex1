@@ -31,20 +31,23 @@ class SplashScreen extends StatelessWidget {
               offersMethod('+23 offers', ' in your current district'),
               offersMethod('+12 offers', ' within 600m of your current location'),
               offersMethod('+8 offers', ' within 300m of your current location'),
-              SizedBox(height: 40,),
-              Container(
-                height: 50,
-                width: double.infinity,
-                margin: EdgeInsets.symmetric(horizontal: 30),
-                decoration: BoxDecoration(
-                    color: Colors.red, borderRadius: BorderRadius.circular(45)),
-                child: Center(
-                  child: Text(
-                    "CONTINUE",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 17,
-                      fontWeight: FontWeight.bold),)),
+              Expanded(
+                child: Align(
+                  alignment: FractionalOffset.bottomCenter,
+                  child: Container(
+                    height: 50,
+                    margin: EdgeInsets.fromLTRB(30, 0, 30, 30),
+                    decoration: BoxDecoration(
+                        color: Colors.red, borderRadius: BorderRadius.circular(45)),
+                    child: Center(
+                      child: Text(
+                        "CONTINUE",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 17,
+                          fontWeight: FontWeight.bold),)),
+                  ),
+                ),
               )
             ],
           ),
