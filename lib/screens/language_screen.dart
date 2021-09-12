@@ -35,10 +35,8 @@ class _LanguageScreenState extends State<LanguageScreen> {
               margin: EdgeInsets.symmetric(vertical: 5),
               height: 50,
               width: 50,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(45),
-                image: DecorationImage(
-                    image: ExactAssetImage(language.image), fit: BoxFit.cover),
+              child: CircleAvatar(
+                backgroundImage: AssetImage(language.image)
               ),
             ),
             trailing: Transform.scale(
