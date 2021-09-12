@@ -81,6 +81,12 @@ class _LanguageScreenState extends State<LanguageScreen> {
                   color: Colors.red
                 ),
                 ),
+              Text(
+                "Please select your language",
+                style: TextStyle(
+                  color: Colors.black54
+                ),
+                ),
               SizedBox(height: 50,),
               Column(
                 children: languageList(),
