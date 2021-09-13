@@ -1,8 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ex1/common/assets_common.dart';
+import 'package:flutter_ex1/model/terms_conditions_model.dart';
 
-class SettingTC extends StatelessWidget {
+class SettingTC extends StatefulWidget {
   const SettingTC({Key? key}) : super(key: key);
+
+  @override
+  _SettingTCState createState() => _SettingTCState();
+}
+
+class _SettingTCState extends State<SettingTC> {
+  //
+  late Future<TermsConditions> futureTermsConditions;
+
+  @override
+  void initState() {
+    super.initState();
+    futureTermsConditions = fetchTermsConditions();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -74,13 +89,27 @@ class SettingTC extends StatelessWidget {
                 ]
               ),
             SizedBox(height: 30,),
-            Text(
-              'This End User License Agreement (this "Agreement") is ...',
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 12,
-              ),
-            )
+            FutureBuilder<TermsConditions>(
+              future: futureTermsConditions,
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  return Expanded(
+                    child: SingleChildScrollView(
+                      child: Text(
+                              getTermsConditions(snapshot.data!.termsConditions),
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 12,
+                              ),
+                            ),
+                    ),
+                  );
+                } else if (snapshot.hasError) {
+                    return Text('${snapshot.error}');
+                } else {
+                    return const CircularProgressIndicator();
+                }
+              }),
           ])),
     ));
   }
@@ -102,4 +131,15 @@ class SettingTC extends StatelessWidget {
       ),
     );
   }
+
+  // Remove the first word
+  String getTermsConditions(String text) {
+    for (int i = 0; i < text.length; i++) {
+      if (text[i] == ' ') {
+        return text.substring(i+1);
+      }
+    }
+    return text;
+  }
+
 }
