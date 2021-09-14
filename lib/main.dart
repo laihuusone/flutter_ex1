@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'screens/language_screen.dart';
+import 'screens/settingTC_screen.dart';
 import 'screens/splash_screen.dart';
 
 void main() {
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
         brightness: Brightness.light,
         unselectedWidgetColor: Colors.red
       ),
-      home: LanguageScreen(),
+      home: SettingTC(),
     );
   }
 }
