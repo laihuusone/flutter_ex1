@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ex1/screens/login_screen.dart';
 import 'screens/language_screen.dart';
 import 'screens/settingTC_screen.dart';
 import 'screens/splash_screen.dart';
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
         brightness: Brightness.light,
         unselectedWidgetColor: Colors.red
       ),
-      home: SettingTC(),
+      home: LoginScreen(),
     );
   }
 }
