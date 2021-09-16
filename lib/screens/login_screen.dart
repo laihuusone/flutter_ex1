@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_ex1/common/assets_common.dart';
+import 'package:flutter_ex1/widgets/text_divider_widget.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -43,54 +44,28 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),),
                     ),
                     Text(
-                      'Log in to bookmark your favorite offers, reveice',
+                      'Log in to bookmark your favorite offers, reveice\nweekly recommendations, and much more!',
+                      textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 13,
                         color: Colors.black45
-                      ),),
-                    Padding(
-                      padding: const EdgeInsets.all(3),
-                      child: Text(
-                        'weekly recommendations, and much more!',
-                        style: TextStyle(
-                          fontSize: 13,
-                          color: Colors.black45
-                        ),),
-                    ),
+                      ),), 
+                    TextDividerWidget(
+                      text: 'EASY LOG IN WITH', 
+                      textSize: 13,
+                      dividerWidth: 100, 
+                      dividerIndent: 40,),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        dividerMethod(85, 50, 30, 0),
-                        Text(
-                          'EASY LOG IN WITH',
-                          style: TextStyle(
-                            fontSize: 13,
-                            color: Colors.black,
-                          ),),
-                        dividerMethod(85, 50, 0, 30),
+                        imageBtnMethod(loginGoogle, 50, pressedGoogleImage),
+                        imageBtnMethod(loginFaceImage, 50, pressedFaceImage),
+                        imageBtnMethod(loginAppleImage, 50, pressedAppleImage),
                       ],
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        imageBtnMethod(loginGoogle, 50),
-                        imageBtnMethod(loginFaceImage, 50),
-                        imageBtnMethod(loginAppleImage, 50),
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        dividerMethod(80, 50, 0, 0),
-                        Text(
-                          'OR WITH YOUR ACCOUNT',
-                          style: TextStyle(
-                            fontSize: 13,
-                            color: Colors.black,
-                          ),),
-                        dividerMethod(80, 50, 0, 0),
-                      ],
-                    ),
+                    TextDividerWidget(
+                      text: 'OR WITH YOUR ACCOUNT', 
+                      textSize: 13,),
                     TextField(
                       decoration: InputDecoration(
                         labelText: 'Phone No./ Email',
@@ -287,23 +262,9 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  Container dividerMethod(
-      double width, double height, double indent, double endIndent) {
-    return Container(
-      width: width,
-      child: Divider(
-        height: height,
-        thickness: 0.5,
-        color: Colors.grey,
-        indent: indent,
-        endIndent: endIndent,
-      ),
-    );
-  }
-
-  InkWell imageBtnMethod(String image, double size, {Function? ontap}) {
+  InkWell imageBtnMethod(String image, double size, [Function()? ontap]) {
     return InkWell(
-      onTap: () => ontap,
+      onTap: ontap,
       child: Image.asset(
         image,
         height: size,
@@ -311,4 +272,10 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
     );
   }
+
+  void pressedGoogleImage() {}
+
+  void pressedFaceImage() {}
+
+  void pressedAppleImage() {}
 }
