@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ex1/provider/otp_sms_verification_provider.dart';
 import 'package:flutter_ex1/screens/login_screen.dart';
-import 'screens/language_screen.dart';
-import 'screens/settingTC_screen.dart';
-import 'screens/splash_screen.dart';
+import 'package:provider/provider.dart';
 
-void main() {
-  runApp(MyApp());
-}
+void main() => runApp(MultiProvider(
+      providers: [
+        ChangeNotifierProvider<OtpSmsVerificationPrivider>(
+            create: (context) => OtpSmsVerificationPrivider()),
+      ],
+      child: MyApp(),
+    ));
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -16,10 +19,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-        brightness: Brightness.light,
-        unselectedWidgetColor: Colors.red
-      ),
+          primarySwatch: Colors.blue,
+          brightness: Brightness.light,
+          unselectedWidgetColor: Colors.red),
       home: LoginScreen(),
     );
   }

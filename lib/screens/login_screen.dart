@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_ex1/common/assets_common.dart';
+import 'package:flutter_ex1/screens/tabs_screen.dart';
+import 'package:flutter_ex1/widgets/button_widget.dart';
 import 'package:flutter_ex1/widgets/text_divider_widget.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -58,7 +60,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        imageBtnMethod(loginGoogle, 50, pressedGoogleImage),
+                        imageBtnMethod(loginGoogleImage, 50, pressedGoogleImage),
                         imageBtnMethod(loginFaceImage, 50, pressedFaceImage),
                         imageBtnMethod(loginAppleImage, 50, pressedAppleImage),
                       ],
@@ -129,18 +131,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                     ),
-                    Container(
-                      height: 50,
-                      decoration: BoxDecoration(
-                          color: Colors.red, 
-                          borderRadius: BorderRadius.circular(45)),
-                      child: Center(
-                        child: Text(
-                          "LOG IN",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 17,
-                            fontWeight: FontWeight.bold),)),
+                    ButtonWidget(
+                      text: 'LOG IN', 
+                      onTap: pressedLoginButton,
                     ),
                     Padding(
                       padding: const EdgeInsets.only(top: 15),
@@ -278,4 +271,9 @@ class _LoginScreenState extends State<LoginScreen> {
   void pressedFaceImage() {}
 
   void pressedAppleImage() {}
+
+  void pressedLoginButton() {
+    Navigator.push(
+      context, MaterialPageRoute(builder: (context) => TabsScreen()));
+  }
 }
