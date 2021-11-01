@@ -47,7 +47,7 @@ class _LanguageScreenState extends State<LanguageScreen> {
                 activeColor: Colors.red,
                 onChanged: (value) {
                   setState(() {
-                    _value = language.id;
+                    _value = int.parse(language.id);
                   });
                 }
               ),

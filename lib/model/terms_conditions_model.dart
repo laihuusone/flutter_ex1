@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:flutter_ex1/common/constant_common.dart';
 import 'package:http/http.dart' as http;
 
