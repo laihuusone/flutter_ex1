@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_ex1/common/assets_common.dart';
-import 'package:flutter_ex1/screens/tabs_screen.dart';
+import 'package:flutter_ex1/screens/menu_screen.dart';
 import 'package:flutter_ex1/widgets/button_widget.dart';
 import 'package:flutter_ex1/widgets/text_divider_widget.dart';
 
@@ -274,6 +274,6 @@ class _LoginScreenState extends State<LoginScreen> {
 
   void pressedLoginButton() {
     Navigator.push(
-      context, MaterialPageRoute(builder: (context) => TabsScreen()));
+      context, MaterialPageRoute(builder: (context) => HomePageScreen()));
   }
 }
